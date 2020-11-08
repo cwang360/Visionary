@@ -234,7 +234,7 @@ function renderBubble(mouseX, mouseY, selection) {
         //remove old image
         tooltipDOM.innerHTML = 'Loading...';
         var img = "";
-        $.getJSON('https://www.googleapis.com/customsearch/v1?key=AIzaSyCh23xeSt-sWLN7s8lAuKmhegLrUjITa2M&cx=2e64fb2f102c1a6a4&q='+selection, function(data) {
+        $.getJSON('https://www.googleapis.com/customsearch/v1?<API_KEY_HERE>&cx=<SEARCH_ENGINE_ID>&q='+selection, function(data) {
             if('items' in data){
                 for(var i = 0; i<data.items.length; i++){
                     console.log(data.items[i]);
