@@ -268,6 +268,8 @@ function renderBubble(mouseX, mouseY, selection) {
             }
             
         });
+    var exID = <INSET EXTENSION ID HERE>;
+    chrome.runtime.sendMessage(exID, selection);
     
 
     tooltipDOM.style.top = mouseY + 'px';
