@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="popUpHTML">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Pop-up</title>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="popup.js"></script>
+        <script src="bootstrap-4.5.3/dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="bootstrap-4.5.3/dist/css/bootstrap.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Blinker' rel='stylesheet'>
+
+
+        <!-- for minor changes -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+      </head>
+    <body class="customBody">
+        <div id="advTitle" class="row colStyleNoHover">
+            More Options
+        </div>
+        <div class="row colStyle">
+            <label for="fontSizeSlider">Change Font Size</label>
+            <input class="slider" type="range" min="10" max="50" value="15" id="fontSizeSlider">
+        </div>
+        <div class="row colStyle">
+            <label for="paddingSlider">Change Spacing</label>
+            <input class="slider" type="range" min="15" max="30" value="5" id="paddingSlider">
+        </div>
+        <div class="row colStyle">
+            <label for="fontChange">Font</label>
+            <select class="dropDown" name="font" id="fontChange">
+                <option value="default">Default</option>
+                <option value="Comic Sans MS" style="font-family:Comic Sans MS">Comic Sans</option>
+                <option value="Times New Roman" style="font-family:Times New Roman">Times New Roman</option>
+                <option value="Arial" style="font-family: Arial">Arial</option>
+                <option value="Verdana" style="font-family:Verdana">Verdana</option>
+            </select>
+        </div>
+        <div class="row colStyle">
+            <label for="colorScheme">Color Scheme</label>
+            <select class="dropDown" name="colorChange" id="colorScheme">
+                <option value="plain">Plain</option>
+                <option value="nightMode">Dark</option>
+                <option value="warm">Warm</option>
+                <option value="cool">Cool</option>
+            </select>
+        </div>
+          <ul class="tabNav">
+            <li><a class="inactive tabs" href="popup.html">Home</a></li>
+            <li><p class="active tabs">More Options</p></li>
+           
+          </ul>
+        
+    </body>
+</html>

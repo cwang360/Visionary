@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html class="popUpHTML">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Pop-up</title>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="popup.js"></script>
+        <script src="bootstrap-4.5.3/dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="bootstrap-4.5.3/dist/css/bootstrap.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Blinker' rel='stylesheet'>
+
+        <!-- for minor changes -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+      </head>
+      <body class="customBody">
+
+        <h1 class="row colStyleNoHover title">Visionary</h1>
+        <div class="row colStyle">
+          
+          <input type="radio" id="default" name="highlightMode" value="default"/>
+          <label for="default">No Change</label><br>
+          <input type="radio" id="wordImage" name="highlightMode" value="wordImage"/>
+          <label for="wordImage">Text to Senses</label><br>
+          <input type="radio" id="highlight" name="highlightMode" value="highlight"/>
+          <label for="highlight">Highlight Notes</label>
+        </div>
+        <div class="row colStyle">
+          <label for="modes">Webpage Modes</label>
+          <select class="dropDown" name="modes" id="modes">
+            <option value="focus">Focus Mode</option>
+            <option value="ease">Readability Mode</option>
+          </select>
+        </div>
+        <div class="row colStyle">
+          <input type="checkbox" id="removeImage" name="remove-images" value="removeImages">
+          <label for="remove-images">Remove Images</label>
+        </div>
+        <div class="row colStyle">
+          <input type="checkbox" id="removeLink" name="remove-links" value="removeLinks">
+          <label for="remove-links">Remove Links</label>
+        </div>
+        <ul class="tabNav">
+          <li><p class="active tabs">Home</p></li>
+          <li><a class="inactive tabs" href="advancedSettings.html">More Options</a></li>
+        </ul>
+      </body>
+</html>

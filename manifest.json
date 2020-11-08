@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "name": "Visionary",
+    "version": "0.1",
+    "content_scripts": [
+      {
+        "matches": [
+            "<all_urls>"
+        ],
+        "js": ["content.js", "popup/jquery.js"],
+        "css": ["content.css"],
+        "run_at": "document_end",
+        "all_frames": true
+      }
+    ],
+    "background":{
+        "scripts": ["background.js"]
+    },
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "permissions": [
+        "notifications",
+        "tabs", 
+        "storage",
+        "contextMenus"
+    ],
+    "browser_action":{
+        "default_icon": "icons/icon128.png",
+        "default_popup": "popup/popup.html",
+        "default_title": "Open menu"
+    }
+  }

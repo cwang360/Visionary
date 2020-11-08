@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pop-up</title>
+        <script type="text/javascript" src="jquery.js"></script>
+        
+        <script type="text/javascript" src="popup.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+      </head>
+    <body>
+        <h1 id="greet">popup</h1>
+ 
+        <h2> Size: <span id="size">0</span></h2>
+
+        <input type="range" id="fontSizeSlider" min="10" max="50" value="20">
+        <input type="range" id="paddingSlider" min="15" max="40" value="20">
+        <form action="/action_page.php">
+            <p>Highlight mode</p>
+            <input type="radio" id="default" name="highlightMode" value="default" checked>
+            <label for="default">No effects</label><br>
+            <input type="radio" id="wordImage" name="highlightMode" value="wordImage">
+            <label for="wordImage">Text to Image</label><br>
+            <input type="radio" id="highlight" name="highlightMode" value="highlight">
+            <label for="highlight">Highlight notes</label>
+          
+        </form>
+        <div>
+            <input type="checkbox" id="removeImage" name="removeImage">
+            <label for="removeImage">Remove Images</label>
+        </div>
+        <div>
+            <input type="checkbox" id="removeLink" name="removeLink">
+            <label for="removeLink">Remove Links</label>
+        </div>
+        <form>
+            <label for="fontChange">Choose a font:</label>
+            <select name="fontChange" id="fontChange">
+              <option value="Comic Sans MS">Comic Sans</option>
+              <option value="Times New Roman">Times New Roman</option>
+              <option value="Arial">Arial</option>
+              <option value="Verdana">Verdana</option>
+            </select>
+        </form>
+        <form>
+            <label for="colorScheme">Choose a color scheme:</label>
+            <select name="colorScheme" id="colorScheme">
+              <option value="plain">Plain</option>
+              <option value="nightMode">Night Mode</option>
+              <option value="warm">Warm</option>
+              <option value="cool">Cool</option>
+            </select>
+        </form>
+
+    </body>
+</html>
