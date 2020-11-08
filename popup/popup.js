@@ -149,6 +149,17 @@ $(function(){
         });
       })
     })
+    //download
+    $('#download').click(function(tab){
+      
+        let msg = {
+          txt: "download"
+        }
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+          chrome.tabs.sendMessage(tabs[0].id, msg)
+        });
+      
+    })
     //MODES
     $('#modes').click(function(tab){
       if($('#modes').val()=="focus"){

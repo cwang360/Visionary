@@ -1,17 +1,24 @@
 .title {
     font-size: 30px;
-    
+    height: 40px;
     color: black;
     
 }
 
 #advTitle {
-    font-size: 25px;
+    font-size: 23px;
     color: black;
     font-weight: 500;
+    width:170px;
 
 }
-
+#download{
+    margin: auto;
+    width: 100%; 
+    border:none;
+    background-color: #a2c258;
+    font-family:"Blinker";
+}
 .advSet {
     margin: 10px;
 }

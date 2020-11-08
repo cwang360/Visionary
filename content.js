@@ -1,6 +1,7 @@
 console.log('Chrome extension running');
 var highlightMode = "default";
 var linkStyle = [];
+var text = "";
 
 //message receiving
 chrome.runtime.onMessage.addListener(gotMessage);
@@ -14,7 +15,6 @@ function gotMessage(message, sender, sendResponse){
     }
     if(message.txt === "change highlight mode"){
         highlightMode = message.hMode;
-        console.log(highlightMode);
     }
     if(message.txt === "toggle remove image"){
         removeImages(message.removeImg);
@@ -35,6 +35,9 @@ function gotMessage(message, sender, sendResponse){
         setColor(message.color);
         removeImages(message.removeImg);
         removeLinks(message.removeLk);
+    }
+    if(message.txt === 'download'){
+        download(text, "notes.txt","txt");
     }
 }
 
@@ -167,13 +170,11 @@ function setColor(color){
 function removeImages(remove){
     var images = document.getElementsByTagName('img');
     if(remove){
-        console.log("removing images");
         for(elt of images){
             elt.style['display'] = 'none';
         }
         
     }else{
-        console.log("see images");
         for(elt of images){
             elt.style['display'] = 'block';
         }
@@ -182,10 +183,8 @@ function removeImages(remove){
 function removeLinks(remove){
     var links = document.getElementsByTagName('a');
     if(remove){
-        console.log("removing links");
         for(elt of links){
             linkStyle.push(window.getComputedStyle(elt).getPropertyValue('color'));
-            console.log(linkStyle[linkStyle.length-1]);
             elt.style['pointer-events'] = 'none';
             elt.style['color'] = 'inherit';
             elt.style['text-decoration'] = 'none';
@@ -195,7 +194,6 @@ function removeLinks(remove){
         var i = 0;
         for(elt of links){
             elt.style['pointer-events'] = 'auto';
-            console.log(linkStyle[i]);
             elt.style['color'] = linkStyle[i];
             i++;
         }
@@ -211,13 +209,19 @@ document.body.appendChild(tooltipDOM);
 
 
 document.addEventListener('mouseup', function (e) {
+    var selection = window.getSelection().toString();
     if(highlightMode === "wordImage"){
-        var selection = window.getSelection().toString();
+        
         if (selection.length > 0) {
             renderBubble(e.clientX, e.clientY+window.pageYOffset, selection);
         }
-        //console.log(document.body.scrollTop);
-        console.log(window.pageYOffset);
+    }else if(highlightMode === "highlight"){
+        console.log(selection);
+        if(selection != ""){
+            highlight('yellow');
+            text+=(selection+" \n");
+        }
+        
     }
 }, false);
 
@@ -269,4 +273,56 @@ function renderBubble(mouseX, mouseY, selection) {
     tooltipDOM.style.top = mouseY + 'px';
     tooltipDOM.style.left = mouseX + 'px';
     tooltipDOM.style.visibility = 'visible';
+}
+
+
+function highlight(color) {
+
+    if (window.getSelection) {
+        // IE9 and non-IE
+        try {
+            if (!document.execCommand("BackColor", false, color)) {
+                makeEditableAndHighlight(color);
+            }
+        } catch (ex) {
+            makeEditableAndHighlight(color)
+        }
+    } 
+
+}
+
+function makeEditableAndHighlight(color) {
+    var range, sel;
+    sel = window.getSelection();
+    if (sel.rangeCount && sel.getRangeAt) {
+        range = sel.getRangeAt(0);
+    }
+    document.designMode = "on";
+    if (range) {
+        sel.removeAllRanges();
+        sel.addRange(range);
+    }
+    // Use HiliteColor since some browsers apply BackColor to the whole block
+    if (!document.execCommand("HiliteColor", false, color)) {
+        document.execCommand("BackColor", false, color);
+    }
+    document.designMode = "off";
+}
+
+function download(data, filename, type) {
+    var file = new Blob([data], {type: type});
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else { // Others
+        var a = document.createElement("a"),
+                url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);  
+        }, 0); 
+    }
 }
