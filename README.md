@@ -5,6 +5,6 @@ People with dyslexia can use our "text to image" feature, which automatically ge
 
 Sometimes, websites present information in a very distracting way, with many irrelevant images and links that can make it difficult for people like the elderly to follow the information or navigate the page. Visionary allows users to conveniently adjust the webpage so that it is easy to follow. For example, Focus Mode disables all links, removes all images, adjusts font size and padding, and changes the page's color to black text on white background so that text can be easily read without distractions. Comfort Mode changes the font style to a sans-serif font, and adjusts the background and text color to make the page calming and easy on the eyes.
 
-Users who want to have more control over the page can manually adjust line spacing, font size, font style, images, links, and color scheme in advanced settings. 
+Users who want to have more control over the page can manually adjust line spacing, font size, font style, images, links, and color scheme in advanced settings. In addition, users can highlight text on an article and download a text file of highlighted notes.
 
 This project was created by Cynthia Wang and Yu Pan and submitted to the TechTogether Boston Hackathon.
